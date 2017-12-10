@@ -108,7 +108,7 @@ minethd::minethd(miner_work& pWork, size_t iNo, int iMultiway, bool no_prefetch,
 	switch (iMultiway)
 	{
 	case 6:
-		oWorkThd = std::thread(&minethd::penta_work_main, this);
+		oWorkThd = std::thread(&minethd::hexa_work_main, this);
 		break;	
 			
 	case 5:
@@ -499,7 +499,7 @@ minethd::cn_hash_fun_multi minethd::func_multi_selector(size_t N, bool bHaveAes,
 		cryptonight_penta_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, true, true>,
 		cryptonight_hexa_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, false, false>,
 		cryptonight_hexa_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, false, true>,
-		cryptonight_haexa_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, true, false>,
+		cryptonight_hexa_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, true, false>,
 		cryptonight_hexa_hash<MONERO_MASK, MONERO_ITER, MONERO_MEMORY, true, true>	
 #endif
 #if (!defined(CONF_NO_AEON)) && (!defined(CONF_NO_MONERO))
